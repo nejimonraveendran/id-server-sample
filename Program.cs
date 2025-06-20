@@ -13,7 +13,7 @@ var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
-var connectionString = builder.Configuration.GetConnectionString("DefaultConnection") ?? "Server=.;Database=IdentityServerDb;User ID=sa;Password=Admin@123;TrustServerCertificate=True;";
+var connectionString = builder.Configuration.GetConnectionString("DefaultConnection"); 
 
 builder.Services.AddDbContext<ConfigurationDbContext>(options =>
     options.UseSqlServer(connectionString, b => b.MigrationsAssembly("id-server")));
